@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | NeuroNex AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    header {
+      background: linear-gradient(90deg, rgba(17, 94, 89, 0.95), rgba(30, 41, 59, 0.95));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+
+    .max-w-7xl {
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .max-w-4xl {
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .font-bold {
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .text-coral {
+      color: #FF6B6B;
+    }
+
+    nav a.nav-link {
+      color: #F8FAFC;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden;
+    }
+
+    nav a.nav-link:hover {
+      color: #F8FAFC;
+      background: linear-gradient(90deg, #FF6B6B, #F4A261);
+      transform: scale(1.03);
+      box-shadow: 0 0 8px rgba(255, 107, 107, 0.2);
+    }
+
+    nav a.nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #F4A261;
+      transition: width 0.4s ease-in-out;
+    }
+
+    nav a.nav-link:hover::after {
+      width: 100%;
+    }
+
+    nav a.nav-link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.8s ease, height 0.8s ease;
+    }
+
+    nav a.nav-link:active::before {
+      width: 180px;
+      height: 180px;
+      opacity: 0;
+    }
+
+    .space-x-6 > * + * {
+      margin-left: 0.5rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .md\:hidden {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    .md\:flex {
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    }
+
+    .focus\:outline-none:focus {
+      outline: none;
+    }
+
+    .w-6 {
+      width: 1.5rem;
+    }
+
+    .h-6 {
+      height: 1.5rem;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .pb-4 {
+      padding-bottom: 1rem;
+    }
+
+    .hamburger {
+      position: relative;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger-lines,
+    .hamburger-lines::before,
+    .hamburger-lines::after {
+      position: absolute;
+      width: 1.5rem;
+      height: 2px;
+      background: #FF6B6B;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .hamburger-lines {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hamburger-lines::before,
+    .hamburger-lines::after {
+      content: '';
+      left: 0;
+    }
+
+    .hamburger-lines::before {
+      top: -6px;
+    }
+
+    .hamburger-lines::after {
+      top: 6px;
+    }
+
+    .hamburger.active .hamburger-lines {
+      background: transparent;
+    }
+
+    .hamburger.active .hamburger-lines::before {
+      top: 0;
+      transform: rotate(45deg);
+      background: #F4A261;
+    }
+
+    .hamburger.active .hamburger-lines::after {
+      top: 0;
+      transform: rotate(-45deg);
+      background: #F4A261;
+    }
+
+    .hamburger:hover .hamburger-lines,
+    .hamburger:hover .hamburger-lines::before,
+    .hamburger:hover .hamburger-lines::after {
+      background: #F4A261;
+    }
+
+    .hamburger::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 107, 107, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.8s ease, height 0.8s ease;
+    }
+
+    .hamburger:active::before {
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+    }
+
+    section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-section {
+      background: linear-gradient(to right, #1E293B, #1F387F);
+      color: #F8FAFC;
+      text-align: center;
+      padding: 8rem 1rem 5rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/diagonal-noise.png');
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .ai-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      perspective: 1000px; /* Kept for rotation effect */
+    }
+
+    .ai-shapes .shape {
+      position: absolute;
+      /* Enhanced gradient to simulate 3D lighting */
+      background: radial-gradient(circle at 20% 20%, #f4e4bc 20%, #d9b26f 60%, #a67c00 88%, #7a5a00 100%);
+      border-radius: 80%; /* Spherical shape */
+      box-shadow: 
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3), /* Subtle inner shadow for depth */
+        2px 2px 5px rgba(0, 0, 0, 0.4), /* Outer shadow for 3D effect */
+        0 0 8px rgba(255, 255, 255, 0.2); /* Light glow for realism */
+      transition: transform 0.2s ease, opacity 0.1s ease;
+      z-index: 1; /* Planet above back ring, below front ring */
+      animation: float 2s ease-in-out infinite, rotate 10s linear infinite; /* Combined animations */
+    }
+
+    .shape-1 {
+      --planet-size: 15px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 12%;
+      left: 10%;
+      animation: float 2s ease-in-out infinite 3s, rotate 10s linear infinite;
+    }
+
+    .shape-2 {
+      --planet-size: 20px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 80%;
+      left: 86%;
+      animation: float 4s ease-in-out infinite 3s, rotate 10s linear infinite;
+    }
+
+    .shape-3 {
+      --planet-size: 12px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 32%;
+      left: 62%;
+      animation: float 1s ease-in-out infinite 3s, rotate 10s linear infinite;
+    }
+
+    .shape-4 {
+      --planet-size: 20px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 82%;
+      left: 8%;
+      animation: float 5s ease-in-out infinite 1s, rotate 10s linear infinite;
+    }
+
+    .shape-5 {
+      --planet-size: 14px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 90%;
+      left: 44%;
+      animation: float 2s ease-in-out infinite 1.5s, rotate 10s linear infinite;
+    }
+
+    .shape-6 {
+      --planet-size: 18px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 45%;
+      left: 20%;
+      animation: float 3s ease-in-out infinite 2.5s, rotate 10s linear infinite;
+    }
+
+    .shape-7 {
+      --planet-size: 19px;
+      width: var(--planet-size);
+      height: var(--planet-size);
+      top: 7%;
+      left: 87%;
+      animation: float 3.5s ease-in-out infinite 3.5s, rotate 10s linear infinite;
+    }
+
+    .ai-shapes .shape::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(var(--planet-size) * 2.5); /* Wider for elliptical shape */
+      height: calc(var(--planet-size) * 1); /* Thinner for ring */
+      transform: translate(-50%, -50%) rotateX(86deg); /* Tilt for 3D effect */
+      border: calc(var(--planet-size) / 10) solid rgba(170, 150, 130, 0.8); /* Scaled border, dusty color */
+      border-radius: 80%; /* Rounded, elliptical shape */
+      box-sizing: border-box;
+      box-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.3), /* Scaled glow */
+        inset 0 0 3px rgba(0, 0, 0, 0.4); /* Scaled shadow for depth */
+      z-index: 0; /* Behind planet */
+      /* Ring remains stable */
+    }
+
+    .ai-shapes .shape::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(var(--planet-size) * 2.5); /* Slightly larger for layered effect */
+      height: calc(var(--planet-size) * 1); /* Slightly larger for proportion */
+      transform: translate(-50%, -50%) rotateX(65deg); /* Same tilt */
+      border: calc(var(--planet-size) / 15) solid rgba(150, 130, 110, 0.6); /* Thinner, different hue */
+      border-radius: 80%; /* Rounded, elliptical shape */
+      box-sizing: border-box;
+      box-shadow: 
+        0 0 3px rgba(255, 255, 255, 0.2), /* Scaled glow */
+        inset 0 0 2px rgba(0, 0, 0, 0.3); /* Scaled shadow */
+      z-index: 2; /* In front of planet */
+      /* Ring remains stable */
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-30px) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .ai-shapes .shape:hover {
+      transform: scale(1.3);
+      opacity: 0.5;
+      box-shadow: 
+        0 0 10px rgba(255, 107, 107, 0.7), 
+        0 0 15px rgba(244, 162, 97, 0.5);
+    }
+
+    .ai-shapes .shape:hover::before,
+    .ai-shapes .shape:hover::after {
+      border-color: rgba(255, 107, 107, 0.9); /* Change ring color on hover */
+      box-shadow: 
+        0 0 10px rgba(255, 107, 107, 1), 
+        0 0 15px rgba(255, 107, 107, 0.8);
+      opacity: 0.9;
+    }
+
+    .hero-section h2, .hero-section p {
+      position: relative;
+      z-index: 3; /* Above both planet and ring */
+      color: #F8FAFC;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      color: #115E59;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      border-bottom: 3px solid #FF6B6B;
+      margin-bottom: 1.5rem;
+    }
+
+    h1::after, h2::after, h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #FF6B6B, #F4A261);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    h1:hover::after, h2:hover::after, h3:hover::after {
+      transform: translateX(0);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      color: #115E59;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #1E293B;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border-color: #FF6B6B;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      background: #FF6B6B;
+      color: #F8FAFC;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #F4A261;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(244, 162, 97, 0.4);
+    }
+
+    .contact-info-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 0 10px rgba(255, 107, 107, 0.2);
+    }
+
+    .contact-info-card h4 {
+      font-weight: 700;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif; /* Updated to a more specific font */
+      text-decoration: none;
+      background: #FF6B6B;
+      color: #F8FAFC;
+      box-shadow: 0 4px 12px rgba(215, 87, 67, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: #F4A261;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(244, 162, 97, 0.4);
+    }
+
+    .poll-card {
+      background: linear-gradient(240deg, seagreen, silver); /* Fixed gradient syntax */
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      color: #F8FAFC;
+      position: relative;
+    }
+
+    .poll-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/diagonal-noise.png');
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .poll-card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .poll-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .poll-option input {
+      margin-right: 0.5rem;
+      accent-color: #F8FAFC;
+    }
+
+    .poll-option label {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .poll-btn {
+      background: #FFFFFF;
+      color: #115E59;
+      border: 2px solid #115E59;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .poll-btn:hover {
+      background: linear-gradient(135deg, #114C91, #F4A261);
+      color: #F8FAFC;
+      transform: scale(1.05);
+    }
+
+    .divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, #FF6B6B, #F4A261);
+      margin: 2rem auto;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #114C91, #F4A261);
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/diagonal-noise.png');
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: #F8FAFC;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      min-width: 140px;
+      height: 48px;
+    }
+
+    .cta-button.primary {
+      background: #FF6B6B;
+      color: #F8FAFC;
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+    }
+
+    .cta-button.primary:hover {
+      background: #F4A261;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(244, 162, 97, 0.4);
+    }
+
+    .cta-button.secondary {
+      background: #FFFFFF;
+      color: #115E59;
+      border: 2px solid #115E59;
+      box-shadow: 0 4px 12px rgba(17, 94, 89, 0.2);
+    }
+
+    .cta-button.secondary:hover {
+      background: #115E59;
+      color: #F8FAFC;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(17, 94, 89, 0.3);
+    }
+
+    #mobileMenu {
+      background: #115E59;
+      animation: slideIn 0.3s ease-in-out;
+    }
+
+    #mobileMenu a.nav-link-mobile {
+      color: #F8FAFC;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: block;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease-in-out;
+    }
+
+    #mobileMenu.active a.nav-link-mobile {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #mobileMenu.active a.nav-link-mobile:nth-child(1) { transition-delay: 0.05s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(2) { transition-delay: 0.1s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(3) { transition-delay: 0.15s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(4) { transition-delay: 0.2s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(5) { transition-delay: 0.25s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(6) { transition-delay: 0.3s; }
+    #mobileMenu.active a.nav-link-mobile:nth-child(7) { transition-delay: 0.35s; }
+
+    #mobileMenu a.nav-link-mobile:hover {
+      color: #F8FAFC;
+      background: #FF6B6B;
+      transform: translateX(8px);
+      box-shadow: 0 0 8px rgba(255, 107, 107, 0.2);
+    }
+
+    #mobileMenu a.nav-link-mobile::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.8s ease, height 0.8s ease;
+    }
+
+    #mobileMenu a.nav-link-mobile:active::before {
+      width: 180px;
+      height: 180px;
+      opacity: 0;
+    }
+
+    footer {
+      background: whitesmoke;
+      color: black;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      width: 100vw;
+      overflow-x: hidden;
+      border-top: 2px solid #FF6B6B;
+      font-weight: 700;
+    }
+
+    footer div {
+      width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    function validateForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || name.length < 2) {
+        alert('Please enter a valid name (minimum 2 characters).');
+        return false;
+      }
+      if (!email || !emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      if (!message || message.length < 10) {
+        alert('Please enter a message (minimum 10 characters).');
+        return false;
+      }
+      alert('Message sent successfully! We’ll get back to you soon.');
+      return true;
+    }
+
+    function submitPoll() {
+      const options = document.getElementsByName('poll-option');
+      let selectedOption = '';
+      for (const option of options) {
+        if (option.checked) {
+          selectedOption = option.value;
+          break;
+        }
+      }
+      if (!selectedOption) {
+        alert('Please select an option before submitting the poll!');
+        return;
+      }
+      document.getElementById('poll-form').classList.add('hidden');
+      document.getElementById('poll-results').classList.remove('hidden');
+      document.getElementById('poll-result-text').textContent = `Thanks for your feedback! Many visitors are also interested in "${selectedOption.replace('-', ' ')}." Stay tuned for more updates! 🚀`;
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <header class="shadow sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-coral">NeuroNex AI</h1>
+        <nav class="hidden md:flex space-x-6">
+          <a href="index.html" class="font-medium nav-link">Home</a>
+          <a href="features.html" class="font-medium nav-link">Features</a>
+          <a href="pricing.html" class="font-medium nav-link">Pricing</a>
+          <a href="team.html" class="font-medium nav-link">Team</a>
+          <a href="about.html" class="font-medium nav-link">About</a>
+          <a href="contact.html" class="font-medium nav-link text-coral">Contact</a>
+          <a href="blogs.html" class="font-medium nav-link">Blogs</a>
+        </nav>
+        <button class="md:hidden focus:outline-none hamburger" onclick="toggleMobileMenu()">
+          <span class="hamburger-lines"></span>
+        </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+        <a href="index.html" class="block py-2 nav-link-mobile">Home</a>
+        <a href="features.html" class="block py-2 nav-link-mobile">Features</a>
+        <a href="pricing.html" class="block py-2 nav-link-mobile">Pricing</a>
+        <a href="team.html" class="block py-2 nav-link-mobile">Team</a>
+        <a href="about.html" class="block py-2 nav-link-mobile">About</a>
+        <a href="contact.html" class="block py-2 nav-link-mobile text-coral">Contact</a>
+        <a href="blogs.html" class="block py-2 nav-link-mobile">Blogs</a>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="ai-shapes">
+        <span class="shape shape-1"></span>
+        <span class="shape shape-2"></span>
+        <span class="shape shape-3"></span>
+        <span class="shape shape-4"></span>
+        <span class="shape shape-5"></span>
+        <span class="shape shape-6"></span>
+        <span class="shape shape-7"></span>
+      </div>
+      <h2>Let’s Connect, Young Innovators!</h2>
+      <p class="mt-4 text-1.2rem max-w-2xl mx-auto">Got a cool idea or just want to chat about AI? We’re here for you—drop us a message and let’s make something awesome together!</p>
+    </section>
+
+    <section class="py-12 px-4 max-w-7xl mx-auto">
+      <h1>Contact Us</h1>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form onsubmit="return validateForm()">
+            <div class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700"></label>
+                <input type="text" id="name" name="name" class="input-field" placeholder="What’s your name?" required>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700"></label>
+                <input type="email" id="email" name="email" class="input-field" placeholder="Where can we reach you?" required>
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-700"></label>
+                <textarea id="message" name="message" class="input-field" rows="5" placeholder="Tell us your ideas or questions!" required></textarea>
+              </div>
+              <div class="flex justify-center mt-6">
+                <button type="submit" class="submit-btn">Send It!</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="contact-info-card">
+          <h3>Our Contact Details</h3>
+          <div class="space-y-4">
+            <div>
+              <h4>📍 Our Hub</h4>
+              <p>123 Innovation Drive, Suite 456, Tech City, CA 12345</p>
+            </div>
+            <div>
+              <h4>📞 Call Us</h4>
+              <p>+1 (555) 123-4567</p>
+            </div>
+            <div>
+              <h4>📧 Email Us</h4>
+              <p>contact@neuronex.ai</p>
+            </div>
+            <div>
+              <h4>💬 Social Vibes</h4>
+              <div class="flex justify-center gap-2 flex-wrap">
+                <a href="https://twitter.com/neuronexai" target="_blank" class="social-btn">Twitter</a>
+                <a href="https://instagram.com/neuronexai" target="_blank" class="social-btn">Instagram</a>
+                <a href="https://linkedin.com/company/neuronexai" target="_blank" class="social-btn">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="py-12 px-4 max-w-7xl mx-auto">
+      <h1>Quick Poll for You!</h1>
+      <div class="max-w-md mx-auto poll-card">
+        <h3>What Brought You to NeuroNex AI Today?</h3>
+        <form id="poll-form">
+          <div class="space-y-2">
+            <div class="poll-option">
+              <input type="radio" id="option1" name="poll-option" value="exploring-ai-solutions">
+              <label for="option1">Exploring AI Solutions for My Business</label>
+            </div>
+            <div class="poll-option">
+              <input type="radio" id="option2" name="poll-option" value="learning-about-team">
+              <label for="option2">Learning About Your Team and Vision</label>
+            </div>
+            <div class="poll-option">
+              <input type="radio" id="option3" name="poll-option" value="checking-out-blogs">
+              <label for="option3">Checking Out Your Latest Blogs</label>
+            </div>
+            <div class="poll-option">
+              <input type="radio" id="option4" name="poll-option" value="curious-about-ai">
+              <label for="option4">Just Curious About AI Innovations</label>
+            </div>
+          </div>
+          <div class="flex justify-center mt-4">
+            <button type="button" onclick="submitPoll()" class="poll-btn">Submit Feedback</button>
+          </div>
+        </form>
+        <div id="poll-results" class="hidden">
+          <p id="poll-result-text" class="text-center"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="cta-section">
+      <h3>Ready to Innovate with Us?</h3>
+      <p><b>Let’s team up to create the future of AI—your ideas matter!</b><br><i>Explore our features or connect with our team to get started.</i></p>
+      <div class="cta-buttons">
+        <a href="features.html" class="cta-button primary">Discover Features</a>
+        <a href="team.html" class="cta-button secondary">Meet Our Team</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>© 2025 NeuroNex AI. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
